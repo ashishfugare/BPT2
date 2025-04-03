@@ -31,7 +31,7 @@ def run_comparative_experiment():
     problems = []
     
     # Base-10 problems (small to medium)
-    for var_count in [6, 8, 10]:
+    for var_count in [6, 8]:    # Change: add 10 later 
         generator = ProblemGenerator(
             base=10,
             max_word_length=var_count//2,
@@ -39,18 +39,18 @@ def run_comparative_experiment():
         )
         # Simple addition
         problems.append(generator.generate_simple_addition())
-        # Multi-operation
-        problems.append(generator.generate_multi_operation(op_count=2))
+        # Multi-operation   
+        #problems.append(generator.generate_multi_operation(op_count=2))  #change and # to simpel
     
     # Base-16 problems (medium)
-    for var_count in [8, 10, 12]:
+    #for var_count in [8, 10, 12]:
         generator = ProblemGenerator(
             base=16,
-            max_word_length=var_count//2,
-            variable_count=var_count
+            max_word_length=4,          # change : var_count//2,
+            variable_count=8            # change : var_count
         )
         problems.append(generator.generate_simple_addition())
-        problems.append(generator.generate_multi_constraint(constraint_count=2))
+        #problems.append(generator.generate_multi_constraint(constraint_count=2))  #change and # to simpel
     
     # Define solvers for comparison
     solvers = [
